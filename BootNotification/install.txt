@@ -1,0 +1,14 @@
+cd //etc/network || exit ;
+% echo "post-up bash /etc/bootnotify" | sudo tee -a interfaces ;
+cd //etc || exit ;
+echo "Enter your Key from the Maker IFTTT Channel followed by [ENTER]" ;
+read -r key ;
+echo "Enter the Event Name followed by [ENTER]" ;
+read -r name ;
+string="curl -x POST https://maker.ifttt.com/trigger/${name}/with/key/${key} | sudo tee -a .notify.log" ;
+% echo "$string" | sudo tee -a bootnotify;
+sudo chmod -x bootnotify ;
+echo "We will now test this - if you dont get anything try again.";
+sudo bash bootnotify ;
+echo "If you get the Notification, reboot and try then";
+cd ~ || exit;
