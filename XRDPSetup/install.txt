@@ -1,0 +1,7 @@
+#!/bin/bash/
+% sudo ufw disable;
+% sudo ufw allow 3389;
+% sudo ufw enable;
+sudo apt-get install xrdp -y -q;
+read -p "Install done, Press [Enter] to reboot then connect to /"raspberrypi/" in your RDP Program with default settings"
+% sudo reboot
